@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Our Mentors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6c3483;
+            --primary-light: #b998ff;
+            --secondary-color: #4a007d;
+            --text-dark: #2c2c2c;
+            --text-light: #777;
+            --white: #ffffff;
+            --shadow-sm: 0 4px 10px rgba(0,0,0,0.1);
+            --shadow-md: 0 8px 20px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-btn {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .nav-btn:hover::before {
+            width: 70%;
+        }
+        
+        .nav-btn.active {
+            background-color: var(--primary-light);
+            box-shadow: 0 4px 15px rgba(185, 152, 255, 0.4);
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Body Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f7fe;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .main-content {
+            padding: 40px 20px;
+            flex: 1;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-light), var(--primary-color));
+            border-radius: 2px;
+        }
+        
+        .mentor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .mentor-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mentor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .mentor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-light), var(--primary-color));
+        }
+        
+        .mentor-image-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #f0e6ff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        
+        .mentor-card:hover .mentor-image-container {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .mentor-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .mentor-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .mentor-name {
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .mentor-description {
+            margin: 15px 0;
+            color: var(--text-light);
+            line-height: 1.6;
+            padding: 0 10px;
+        }
+        
+        .mentor-rating {
+            color: #ffcc00;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+        
+        .mentor-specialty {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 3rem 2rem;
+            margin-top: 50px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo i {
+            margin-right: 10px;
+        }
+        
+        .footer-about p {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        .footer-links h3, 
+        .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3::after,
+        .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-light);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            opacity: 0.9;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary-light);
+            width: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 0.5rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .mentor-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mentor-image-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .footer {
+                padding: 2rem 1rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <a href="#" class="logo">
+            🧠MindCraft
+        </a>
+        
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="projetweb.html" class="nav-btn">Accueil</a>
+            <a href="loginformulaire.html" class="nav-btn">Se connecter</a>
+            <a href="signinformulaire.html" class="nav-btn">S'inscrire</a>
+            <a href="about.html" class="nav-btn">À propos</a>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Meet Our Mentors</h1>
+        <div class="mentor-grid">
+            <div class="mentor-card">
+                <div class="mentor-image-container">
+                    <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\gros-plan-belle-femme-poser.jpg" alt="Professeur 1">
+                </div>
+                <div class="mentor-name">Mme Nadia Ben Amor</div>
+                <div class="mentor-specialty">Anglais</div>
+                <p class="mentor-description">Professeur dynamique et engagé, spécialisé dans l'enseignement de l'anglais comme langue étrangère avec 10 ans d'expérience.</p>
+                <div class="mentor-rating">★★★★☆</div>
+            </div>
+            
+            <div class="mentor-card">
+                <div class="mentor-image-container">
+                    <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\senior-professor-sitting-desk-with-book-classroom.jpg" alt="Professeur 2">
+                </div>
+                <div class="mentor-name">Mr Mohamed Trabelsi</div>
+                <div class="mentor-specialty">Mathématiques</div>
+                <p class="mentor-description">Spécialiste en mathématiques appliquées et passionné par l'enseignement innovant. Doctorat en algèbre linéaire.</p>
+                <div class="mentor-rating">★★★☆☆</div>
+            </div>
+            
+            <div class="mentor-card">
+                <div class="mentor-image-container">
+                    <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\portrait-d-une-femme.jpg" alt="Professeur 3">
+                </div>
+                <div class="mentor-name">Mme Salma Chaouch</div>
+                <div class="mentor-specialty">Cybersécurité</div>
+                <p class="mentor-description">Chercheuse en cybersécurité, elle encadre plusieurs projets d'étudiants en master et publie régulièrement des articles scientifiques.</p>
+                <div class="mentor-rating">★★★★★</div>
+            </div>
+            
+            <div class="mentor-card">
+                <div class="mentor-image-container">
+                    <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\portrait-selfie-pour-appel-video.jpg" alt="Professeur 4">
+                </div>
+                <div class="mentor-name">Mme Nouha Lassoued</div>
+                <div class="mentor-specialty">Littérature</div>
+                <p class="mentor-description">Passionnée par la langue et la littérature françaises, elle transmet avec enthousiasme les subtilités des grands classiques.</p>
+                <div class="mentor-rating">★★★★☆</div>
+            </div>
+            
+            <div class="mentor-card">
+                <div class="mentor-image-container">
+                    <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\happy-man-student-with-afro-hairdo-shows-white-teeth-being-good-mood-after-classes.jpg" alt="Professeur 5">
+                </div>
+                <div class="mentor-name">Mr Mounir Laakom</div>
+                <div class="mentor-specialty">Développement Web</div>
+                <p class="mentor-description">Développeur full-stack et enseignant en technologies web depuis 8 ans. Expert React et Node.js.</p>
+                <div class="mentor-rating">★★★★★</div>
+            </div>
+            
+            <div class="mentor-card">
+                <div class="mentor-image-container">
+                    <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\young-bearded-man-with-striped-shirt.jpg" alt="Professeur 6">
+                </div>
+                <div class="mentor-name">Mr Karim Sayari</div>
+                <div class="mentor-specialty">Analyse Mathématique</div>
+                <p class="mentor-description">Professeur rigoureux et passionné, spécialisé en analyse et algèbre. Auteur de plusieurs manuels universitaires.</p>
+                <div class="mentor-rating">★★★☆☆</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-brain"></i> MindCraft
+                </div>
+                <p>Notre plateforme connecte les étudiants avec des mentors expérimentés pour un apprentissage personnalisé et efficace.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="projetweb.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="#">Nos mentors</a></li>
+                    <li><a href="#">Cours</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contactez-nous</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Éducation, Tunis, Tunisie</p>
+                <p><i class="fas fa-phone"></i> +216 12 345 678</p>
+                <p><i class="fas fa-envelope"></i> contact@mindcraft.com</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 MindCraft. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu toggle for mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link (for mobile)
+        document.querySelectorAll('.nav-btn').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+    
+</body>
+</html>
