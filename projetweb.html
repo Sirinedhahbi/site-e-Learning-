@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="ang">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>🧠MindCraft</title>
+
+  <link rel="stylesheet" href="projetweb.css">
+
+</head>
+
+
+
+<script src="projetweb.js"></script>
+
+<header class="navbar">
+
+  <div class="logo">
+
+    <span class="logo-icon">🧠</span>
+
+    <span>MindCraft</span>
+
+  </div>
+
+  <nav class="nav-links">
+
+    <a href="signinformulaire.html" class="nav-btn1">Inscription</a>
+
+    <a href="loginformulaire.html" class="nav-btn1">Connexion</a>
+
+    <a href="mentors.html" class="nav-btn1">Nos profs</a>
+
+    <a href="about.html" class="nav-btn1">a propos</a>
+
+
+    <div class="search-box">
+
+      <input type="search" placeholder="search for courses" id="searchInput">
+
+      <button type="submit" class="search-box">🔍</button>
+
+      <ul id="courseList" class="hidden">
+
+        <li >Dev Web Avancé</li>
+
+        <li >Analyse de Données</li>
+
+        <li >Machine Learning </li>
+
+        <li >Réseaux et Sécurité</li>
+
+        <li >Piratage éthique</li>
+
+        <li >IA générative</li>
+
+        <li >Programmation Java</li>
+
+        <li >Big Data</li>
+
+        <li >Science des données</li>
+
+        <li >Microsoft Excel</li>
+
+        <li >Conception graphique</li>
+
+      </ul>
+
+    </div>
+
+    <script>
+        
+
+      const searchInput = document.getElementById("searchInput");
+
+      const courseList = document.getElementById("courseList");
+
+
+      searchInput.addEventListener("focus", () => {  //focus ki yenzel aal input
+
+        courseList.classList.remove("hidden");
+
+      });
+
+      // code besh tetna7a la liste ken necliquiou lbarra
+
+      document.addEventListener("click", (e) => {     //fel click dima aandna target eli heyya el e 
+
+        if (!e.target.closest(".search-box") && !e.target.closest("#courseList")) {
+
+          courseList.classList.add("hidden");
+
+        }
+
+      })
+
+    </script>
+
+  </nav>
+
+</header>
+<body>
+<section class="quote-section">
+
+  <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\pexels-mikhail-nilov-9159662.jpg" class="quote-image">
+
+  <p class="quote-text">
+
+    "Education is the most powerful weapon which you can use to change the world." <br>– Nelson Mandela
+
+  </p>
+
+
+</section>
+
+<!-- Modale vidéo -->
+<div id="videoModal" class="video-modal">
+    <div class="modal-content">
+        <span id="closeBtn" class="close-btn">&times;</span>
+        <video controls autoplay>
+            <source src="C:\xampp1\htdocs\mindcraft\Learning Platform Launch Ad.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo HTML5.
+        </video>
+    </div>
+</div>
+
+
+<section class="why-choose-us">
+  <div class="section-header">
+      <h2>Découvrez les Avantages de Mindcraft</h2>
+      <p>Une plateforme conçue pour transformer votre expérience d'apprentissage en ligne.</p>
+  </div>
+  <div class="feature-cards">
+      <div class="feature-card">
+          <div class="icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Apprentissage Interactif et Captivant</h3>
+          <p>Plongez dans des cours interactifs, créés par des experts, pour une assimilation optimale des connaissances.</p>
+      </div>
+      <div class="feature-card">
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+          <h3>Certifications Reconnues par l'Industrie</h3>
+          <p>Valorisez votre expertise avec des certifications qui ouvrent les portes de votre avenir professionnel.</p>
+      </div>
+      <div class="feature-card">
+          <div class="icon"><i class="fas fa-users"></i></div>
+          <h3>Rejoignez une Communauté Mondiale Active</h3>
+          <p>Échangez, collaborez et grandissez au sein d'une communauté d'apprenants passionnés du monde entier.</p>
+      </div>
+      <div class="feature-card">
+          <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Apprenez Partout, À Tout Moment</h3>
+          <p>Accédez à nos cours de manière fluide sur tous vos appareils grâce à notre plateforme mobile optimisée.</p>
+      </div>
+  </div>
+</section>
+  
+<section class="courses-preview">
+  <div class="section-header">
+
+    
+      <h2>Nos cours populaires</h2>
+      <p>Découvrez nos formations les plus demandées</p>
+  </div>
+  <div class="course-cards">
+      <div class="course-card">
+          <div class="course-image">
+              <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\vue-arriere-du-programmeur-travaillant-toute-la-nuit.jpg" alt="Développement Web">
+              <div class="course-badge">Bestseller</div>
+          </div>
+          <div class="course-info">
+              <h3>Développement Web Full Stack</h3>
+              <div class="course-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span>4.8 (2345 avis)</span>
+              </div>
+              <p>Maîtrisez HTML, CSS, JavaScript, React et Node.js pour devenir développeur web complet.</p>
+              <a href="https://gomycode.com/tn/fr/courses/web-development-essentials/?utm_term=formation%20developpeur%20web&utm_campaign=gsearch%7Cacquisition%7Ctrack%7Cfr%7Ctn&utm_source=adwords&utm_medium=ppc&hsa_acc=5951693601&hsa_cam=20547949620&hsa_grp=161427635279&hsa_ad=699085353087&hsa_src=g&hsa_tgt=kwd-1438386315&hsa_kw=formation%20developpeur%20web&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=20547949620&gbraid=0AAAAApeYxf1RMFMcUrCxLXhX6vKDUDqih&gclid=CjwKCAjwiezABhBZEiwAEbTPGOvQ0rF48QhWOM5D-g35nw2FvFAuwAk9PHIGtgBMIogkaPfxCGEXZBoCQ3sQAvD_BwE" class="btn-course">Voir le cours</a>
+          </div>
+      </div>
+      <div class="course-card">
+          <div class="course-image">
+              <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\coup-moyen-homme-portant-des-lunettes-vr.jpg" alt="Intelligence Artificielle">
+          </div>
+          <div class="course-info">
+              <h3>Intelligence Artificielle et Machine Learning</h3>
+              <div class="course-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>4.9 (1876 avis)</span>
+              </div>
+              <p>Apprenez les fondamentaux de l'IA et développez vos premiers modèles de machine learning.</p>
+              <a href="https://www.coursera.org/fr-FR/courses?query=artificial%20intelligence" class="btn-course">Voir le cours</a>
+          </div>
+      </div>
+      <div class="course-card">
+          <div class="course-image">
+              <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\marketing-numerique-avec-des-icones-et-des-gens-d-affaires.jpg" alt="Marketing Digital">
+              <div class="course-badge">Nouveau</div>
+          </div>
+          <div class="course-info">
+              <h3>Marketing Digital Avancé</h3>
+              <div class="course-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <span>4.0 (987 avis)</span>
+              </div>
+              <p>Stratégies de marketing digital pour accroître la visibilité de votre entreprise en ligne.</p>
+              <a href="https://gomycode.com/tn/courses/performance-marketing-meta-certified/?utm_term=ecommerce%20courses&utm_campaign=gsearch%7Cacquisition%7Ctrack%7Cfr%7Ctn&utm_source=adwords&utm_medium=ppc&hsa_acc=5951693601&hsa_cam=21209495027&hsa_grp=161174826933&hsa_ad=697134800107&hsa_src=g&hsa_tgt=kwd-297114431709&hsa_kw=ecommerce%20courses&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=21209495027&gbraid=0AAAAApeYxf3xMv0YDgG3H9emJDt53wJpN&gclid=CjwKCAjwiezABhBZEiwAEbTPGKJQal-NvZxmn76mCUclVKT5aGOmIRdD9pzwv-pMl-6pkIMmqU4OkBoCkZ4QAvD_BwE" class="btn-course">Voir le cours</a>
+          </div>
+      </div>
+  </div>
+  <div class="courses-cta">
+      <a href="courses.html" class="btn-view-all">Voir tous les cours <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+<h2>Découvrez nos Certifications</h2>
+<section class="certifications-section">
+    <div class="certificate-card">
+        <div class="certificate-background" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="certificate-content">
+            <h3 class="certificate-title">Développement Web</h3>
+            <p class="certificate-description">Maîtrisez les technologies modernes du web développement et devenez un expert full-stack.</p>
+            <button class="start-test-button" data-href="web.html">Commencer le test</button>
+        </div>
+    </div>
+
+    <div class="certificate-card">
+        <div class="certificate-background" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="certificate-content">
+            <h3 class="certificate-title">Marketing Digital</h3>
+            <p class="certificate-description">Apprenez les stratégies de marketing digital qui propulsent les entreprises vers le succès.</p>
+            <button class="start-test-button" data-href ="marketing.html">Commencer le test</button>
+        </div>
+    </div>
+
+    <div class="certificate-card">
+        <div class="certificate-background" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="certificate-content">
+            <h3 class="certificate-title">Design Graphique</h3>
+            <p class="certificate-description">Créez des designs percutants et apprenez les principes du design graphique moderne.</p>
+            <button class="start-test-button" data-href="graphique.html">Commencer le test</button>
+        </div>
+    </div>
+</section>
+
+
+<section id="avis">
+  <h1>Ce que les abonnés réalisent grâce à l’apprentissage</h1>
+  <div class="spectateurs">
+      <div class="mentor-card">
+          <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\portrait-modern-woman.jpg" alt="etudinat 1">
+          <div class="mentor-name">Olfa Hamdi</div>
+          <p class="mentor-description">J'ai un emploi à temps plein et trois enfants. J'avais besoin de la flexibilité offerte par Mindcraft Plus pour atteindre mes objectifs. Mon abonnement à Mindcraft Plus m'a motivé à continuer à apprendre.</p>
+
+      </div>
+      <div class="mentor-card">
+          <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\portrait-man-laughing.jpg">
+          <div class="mentor-name">Rami sboui</div>
+          <p class="mentor-description">Mindcraft Plus me motive à apprendre. Avec chaque cours, je tire davantage de valeur de mon abonnement. Je peux accéder à presque tout avec Mindcraft Plus !</p>
+          
+      </div>
+      <div class="mentor-card">
+          <img src="C:\xampp1\htdocs\mindcraft\dossier image projet web\young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg" alt="etudinat 2">
+          <div class="mentor-name">Salma trabelsi</div>
+          <p class="mentor-description">J'apprécie vraiment la flexibilité dont je bénéficie avec Mindcraft Plus. Je peux essayer n'importe quel cours et passer à un autre sans frais supplémentaires. Cela me motive à apprendre encore plus !</p>
+         
+      </div>
+</section>
+
+
+<footer>
+  <div class="footer-container">
+      <div class="footer-column">
+          <h3>MindCraft</h3>
+          <p>La plateforme d'apprentissage en ligne qui transforme votre carrière et élargit vos horizons.</p>
+          <div class="social-links">
+              <a href="sarra.selmene"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+      </div>
+      <div class="footer-column">
+          <h4>Liens rapides</h4>
+          <ul>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="courses.html">Cours</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="support.html">Support technique</a></li>
+              <li><a href="privacy.html">Confidentialité</a></li>
+              <li><a href="terms.html">Conditions d'utilisation</a></li>
+          </ul>
+      </div>
+      <div class="footer-column">
+          <h4>Contact</h4>
+          <ul class="contact-info">
+              <li><i class="fas fa-map-marker-alt"></i> 123 Avenue de l'Innovation, Bardo</li>
+              <li><i class="fas fa-phone"></i> +216 96 128 680 </li>
+              <li><i class="fas fa-envelope"></i> ssplatforme@mindcraft.com</li>
+          </ul>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <p>&copy; 2025 MindCraft. Tous droits réservés.</p>
+  </div>
+</footer>
+   
+  <script>
+    // Affiche la modale vidéo au chargement
+    window.onload = function() {
+        document.getElementById("videoModal").style.display = "flex";
+    };
+
+    // Ferme la modale quand on clique sur la croix
+    document.getElementById("closeBtn").onclick = function() {
+        document.getElementById("videoModal").style.display = "none";
+    };
+
+    // Ferme la modale quand on clique en dehors de la vidéo
+    window.onclick = function(event) {
+        if (event.target == document.getElementById("videoModal")) {
+            document.getElementById("videoModal").style.display = "none";
+        }
+    }
+</script>
+
+</body>
+
+</body>
+
+</html>
